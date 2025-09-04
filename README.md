@@ -1,7 +1,11 @@
+[O que é o Git](#Git:)
+
+# Git, Github, alguns comandos
+
 Resumo de alguns comandos, básicos, do git/gitHub.
 
 
-Git:
+### Git:
 Sistema de controle de versão do código = versionamento.
 
 Registra mudanças realizadas no código e as mantém organizadas.
@@ -38,6 +42,36 @@ Ao invés de ter de sempre digitar todo url, usa-se a palavra origin no lugar do
 
 
 
+Comando para configurar o git local ao remoto
+Atendendo a uma observação dada pelo @José Rocha , obrigada por me lembrar destes importantes comandos
+observações :
+
+--global = irá modificar todos os repositório, deste para os diante
+SEM POR --global = irá modificar apenas o repositório em questão
+Configuração de e-mail
+
+git config --global user.email "e-mail"
+
+(git config --global user.email "alle@gmail.com")
+
+git config user.email "e-mail"
+
+Configuração do usuário
+
+git config --global user.name "nome"
+
+(git config --global user.name "Alle")
+
+git config user.name "Alle"
+
+Verificar usuário e e-mail
+
+git config user.name
+
+git config user.email
+
+
+
 Comando iniciar novo projeto:
 1° no gitHub - Temos algumas formas de iniciar:
 
@@ -45,17 +79,17 @@ Comando iniciar novo projeto:
 Your profile
 
 
-
+image
 
 
 
 Repositories
-
+image
 
 
 
 Dashboard
-
+image
 
 Em REPOSITORY NAME colocar o nome do projeto.
 
@@ -83,7 +117,7 @@ Com tudo já escolhido é só clicar em CREATE REPOSITORY
 
 Após esta ação, irá abrir a página do repositório, nela haverá um quadro, que possui o endereço HTTPS do projeto, copiar, guardar este endereço para poder clonar ou incializar o repositório local, no computador.
 
-
+image
 
 
 
@@ -120,7 +154,7 @@ git init
 
 // traduzo assim, git pega do repositório remoto e adiciona, relaciona à palavra origin este url
 
-git remote add origin url 
+git remote add origin url
 
 (git remote add origin https://github.com/Alle84fr/Dio_riachu.git)
 
@@ -217,8 +251,23 @@ git push --all
 git push -a
 
 
-
 Outros comandos:
+
+
++ Atualizar branch
+
+-> trazer a branch remota para local, uma única
+
+git pull origin nome_branch
+
+-> trazer todas brancas (pode trazer conflitos)
+
+git pull --all
+
+-> trazer trodas infromações, SEM MESCLAR
+
+git fetch --all
+
 
 + Branch:
 -> saber todas as branches local
@@ -233,13 +282,13 @@ git branch
 
 git branch -a
 
--> mudar nome da branch 
+-> mudar nome da branch
 
 git branch -m novo_nome_branch
 
 // o nome era main e agora será master
 
-(git branch master) 
+(git branch master)
 
 -> criar branch sem entrar direto na nova branch
 
@@ -249,7 +298,7 @@ git branch nome_nova_branch
 
 -> mudar de branch
 
-// estava na  branch main e quero ir para alle
+// estava na branch main e quero ir para alle
 
 git checkout nome_branch
 
@@ -291,7 +340,7 @@ ATENÇÃO - SOBRESCEVE TODOS OS ARQUIVOS ATUAIS
 
 (git --hard alle)
 
--> copiar branch mantendo historio, se tiver arquivos diferentes irá manter-nos, já os que tiverem iguais, irá sobrescrever 
+-> copiar branch mantendo historio, se tiver arquivos diferentes irá manter-nos, já os que tiverem iguais, irá sobrescrever
 
 // merge mescla as alterações
 
@@ -303,20 +352,28 @@ ATENÇÃO - SOBRESCEVE TODOS OS ARQUIVOS ATUAIS
 
 2° código git merge branch_original --stategy-option theirs
 
+-> deletar branch local
+
+git branch -d nome_da_sua_branch
+
+-> deletar branch remoto no terminal
+
+git push origin :nome_da_sua_branch
+
 
 
 + Commit
 -> verifica histórico de commits, mostra a hash SHA-1 completo (40 caracteres)
 
-     o short hash pega os 7 primeiros n°s do hash SHA completo
+o short hash pega os 7 primeiros n°s do hash SHA completo
 
-PARA SAIR DEVE DIGITAR    q
+PARA SAIR DEVE DIGITAR q
 
 // informa:
 
- hash SHA  , se este for o último commit feito terá (HEAD -> branch, orignal/main) 
+hash SHA , se este for o último commit feito terá (HEAD -> branch, orignal/main)
 
- autor <e-mail>
+autor <e-mail>
 
 data
 
@@ -364,17 +421,17 @@ git rebase -i hash_do_commit
 
 // abrirá editor de texto, como os commits, mais ou menos assim
 
-pick 5c6c04a Adiciona nova feature de login 
+pick 5c6c04a Adiciona nova feature de login
 
-pick a2b3c4d Corrige bug de cadastro 
+pick a2b3c4d Corrige bug de cadastro
 
 // troque pick por drop
 
 // ou deleta a linha
 
-drop e1f2g3h Commits para teste 
+drop e1f2g3h Commits para teste
 
-pick 4d5e6f7 Mais correções 
+pick 4d5e6f7 Mais correções
 
 pick 8a9b0c1 Atualiza arquivo de configuração
 
@@ -393,28 +450,29 @@ depois deve dar um gir push --all --force ou git push origin nome_branch -f
 + Merge - fazer direto no remoto/nuvem/github
 // PRINTS DO VIDEO "HOW TO MERGE GITHUB BRANCHES TO MASTER
 
+image
+
+image
+
+image
+
+image
+
+SEM CONFLITO
+
+image
+
+image
 
 
 
+COM CONFLITO
 
+image
 
+image
 
-
-
-																						SEM CONFLITO
-
-
-
-
-
-
-
-                                                                                      COM CONFLITO
-
-
-
-
-
-
+image
 
 RESOLVE CO CONFLITO E DEPOIS DÁ MARK AS RESOLVED
+
